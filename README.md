@@ -1,2 +1,2 @@
-# laravel-simple-blog
-The simplest blogging platform I can make with Laravel
+# Topix
+A simple blogging platform built on Laravel
