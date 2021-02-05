@@ -10,4 +10,9 @@ class TopicController extends Controller
     {
     	echo $topic;
     }
+    
+    public function showContent(Request $request, $topic, $slug)
+    {
+    	echo $topic . ' ' . $slug;
+    }
 }
