@@ -55,7 +55,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return $this->posts[$id] ?? null;
+        return $this->posts[$id][0] ?? null;
     }
 
     /**

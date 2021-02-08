@@ -46,8 +46,8 @@ class TopicController extends Controller
     
     public function showPost(Request $request, $topic, $post_slug)
     {
-		echo $topic . ' ' . $post_slug;
-
-		echo "<p><a href=\"/$topic\">Back to $topic</a></p>";
+		return view('post',[
+			'post' => $this->post_api->show($topic)
+		]);
     }
 }
