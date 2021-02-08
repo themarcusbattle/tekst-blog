@@ -1,11 +1,31 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->posts = [
+            'one' => [
+                [
+                    'slug'     => "/one-simple-post",
+                    'title'    => "One Simple Post",
+                    'subtitle' => "Can you say a little more?",
+                    'content'  => "Here is the post content."
+                ],
+                [
+                    'slug'     => "/two-simple-posts",
+                    'title'    => "Two Simple Posts",
+                    'subtitle' => "Can you say a little more?",
+                    'content'  => "Here is the post content."
+                ]
+            ],
+        ];
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +33,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return $this->posts;
     }
 
     /**
@@ -35,7 +55,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->posts[$id] ?? null;
     }
 
     /**
