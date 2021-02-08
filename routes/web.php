@@ -15,9 +15,6 @@ use App\Http\Controllers\TopicController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [TopicController::class, 'showHome']);
 Route::get('/{topic}', [TopicController::class, 'showTopic']);
 Route::get('/{topic}/{slug}', [TopicController::class, 'showContent']);
