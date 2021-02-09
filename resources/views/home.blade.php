@@ -10,9 +10,14 @@
             * { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
         </style>
     </head>
-    <body class="p-3">
-        <div class="mx-auto sm:w-1/2">
-            <h1 id="blog-title" class="text-xl mb-4">{{ $blog['blog_title'] }}</h1>
+    <body class="pt-20">
+        <div class="bg-white border-b mb-8 fixed top-0 w-full">
+            <div class="py-3 px-10 mx-auto sm:w-1/2 text-gray-800">
+                <h1 id="blog-title" class="text-l"><a href="/">{{ $blog['blog_title'] }}</a></h1>
+            </div>
+        </div>
+
+        <div class="px-10 mx-auto sm:w-1/2 text-gray-800">
             <p id="blog-description" class="text-sm text-gray-500 mb-10 sm:w-3/4">
                 {{ $blog['blog_description'] }}
             </p>
