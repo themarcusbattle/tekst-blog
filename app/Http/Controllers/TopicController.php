@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\API\BlogController as BlogAPI;
 use App\Http\Controllers\API\TopicController as TopicAPI;
 use App\Http\Controllers\API\PostController as PostAPI;
 
@@ -10,6 +12,7 @@ class TopicController extends Controller
 {
 	public function __construct()
 	{
+		$this->blog_api = new BlogAPI();
 		$this->topic_api = new TopicAPI();
 		$this->post_api = new PostAPI();
 	}
@@ -18,11 +21,9 @@ class TopicController extends Controller
 	{
 		$topics = $this->topic_api->index();
 		
-		echo "<h1>Topics</h1>";
-		
-		foreach($topics as $topic) {
-			echo "<a href=\"{$topic}\">{$topic}</a><br>";
-		}
+		return view('home',[
+			'blog' => $this->blog_api->index()
+		]);
 	}
 	
     public function showTopic(Request $request, $topic)
