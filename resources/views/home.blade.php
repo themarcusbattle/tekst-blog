@@ -6,6 +6,9 @@
 
         <title>Topix</title>
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+            * { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+        </style>
     </head>
     <body class="p-3">
         <div class="mx-auto sm:w-1/2">
