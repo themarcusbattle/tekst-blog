@@ -49,7 +49,9 @@ class TopicController extends Controller
     public function showPost(Request $request, $topic, $post_slug)
     {
 		return view('post',[
-			'post' => $this->post_api->show($topic)
+			'post' => $this->post_api->show($topic, [
+				'where' => ['slug' => $post_slug]
+			])
 		]);
     }
 }

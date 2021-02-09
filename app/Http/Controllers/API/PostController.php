@@ -41,9 +41,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $params = [])
     {
-        return $this->posts[$id][0] ?? null;
+        return $this->connection->getPost($params);
     }
 
     /**

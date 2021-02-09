@@ -59,4 +59,26 @@ class Airtable {
 
         return $posts;
     }
+
+    public function getPost($params = [])
+    {
+
+        $filters = [
+            'filterByFormula' => "FIND('{$params['where']['slug']}',Slug)"
+        ];
+
+        // Capture the Posts
+        $request = $this->connection->getContent('Posts', $filters);
+        $response = $request->getResponse();
+        
+        $record = $response['records'][0] ?? null;
+
+        return [
+            'title' => $record->fields->Title,
+            'slug' => $record->fields->Slug,
+            'subtitle' => $record->fields->Subtitle ?? "",
+            'content' => $record->fields->Content,
+            'status' => $record->fields->Status,
+        ];
+    }
 }

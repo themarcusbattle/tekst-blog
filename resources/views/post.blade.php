@@ -8,12 +8,13 @@
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     </head>
     <body class="p-3">
-        <div class="sm:w-3/4 mx-auto">
-            <h2 class="text-3xl">{{ $post['title'] }}</h2>
+        <div class="mx-auto sm:w-1/2">
+            <h2 class="text-xl mb-4">{{ $post['title'] }}</h2>
             <h3>{{ $post['subtitle'] }}</h3>
             <div class="my-10">
                 {{ $post['content'] }}
             </div>
+            <a href="/">Home</a>
         </div>
     </body>
 </html>
