@@ -8,7 +8,9 @@
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     </head>
     <body class="p-3">
-        <h1 id="blog-title" class="text-xl mb-4">{{ $blog['blog_title'] }}</h1>
-        <p id="blog-description" class="text-sm text-gray-500">{{ $blog['blog_description'] }}</p>
+        <div class="mx-auto sm:w-1/2">
+            <h1 id="blog-title" class="text-xl mb-4">{{ $blog['blog_title'] }}</h1>
+            <p id="blog-description" class="text-sm text-gray-500">{{ $blog['blog_description'] }}</p>
+        </div>
     </body>
 </html>
