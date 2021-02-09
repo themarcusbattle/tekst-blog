@@ -3,6 +3,7 @@
 namespace App\Content;
 
 use \TANIOS\Airtable\Airtable as AirtableContent;
+use \Parsedown;
 
 class Airtable {
 
@@ -63,6 +64,8 @@ class Airtable {
     public function getPost($params = [])
     {
 
+        $Parsedown = new Parsedown();
+
         $filters = [
             'filterByFormula' => "FIND('{$params['where']['slug']}',Slug)"
         ];
@@ -77,7 +80,7 @@ class Airtable {
             'title' => $record->fields->Title,
             'slug' => $record->fields->Slug,
             'subtitle' => $record->fields->Subtitle ?? "",
-            'content' => $record->fields->Content,
+            'content' => $Parsedown->text($record->fields->Content),
             'status' => $record->fields->Status,
         ];
     }
