@@ -20,9 +20,10 @@ class TopicController extends Controller
 	public function showHome()
 	{
 		$topics = $this->topic_api->index();
-		
+
 		return view('home',[
-			'blog' => $this->blog_api->index()
+			'blog' => $this->blog_api->index(),
+			'posts' => $this->post_api->index()
 		]);
 	}
 	

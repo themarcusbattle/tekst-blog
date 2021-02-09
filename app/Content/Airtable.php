@@ -37,4 +37,26 @@ class Airtable {
             'blog_description' => ""
         ],$records);
     }
+
+    public function getPosts()
+    {
+        // Capture the Posts
+        $request = $this->connection->getContent('Posts');
+        $response = $request->getResponse();
+
+        $posts = [];
+
+        foreach($response['records'] as $record) {
+
+            $posts[] = [
+                'title' => $record->fields->Title,
+                'slug' => $record->fields->Slug,
+                'subtitle' => $record->fields->Subtitle ?? "",
+                'content' => $record->fields->Content,
+                'status' => $record->fields->Status,
+            ];
+        }
+
+        return $posts;
+    }
 }

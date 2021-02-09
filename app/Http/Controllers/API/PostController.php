@@ -5,27 +5,15 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Content\Airtable;
+
 class PostController extends Controller
 {
     public function __construct()
     {
-        $this->posts = [
-            'one' => [
-                [
-                    'slug'     => "/one-simple-post",
-                    'title'    => "One Simple Post",
-                    'subtitle' => "Can you say a little more?",
-                    'content'  => "Here is the post content."
-                ],
-                [
-                    'slug'     => "/two-simple-posts",
-                    'title'    => "Two Simple Posts",
-                    'subtitle' => "Can you say a little more?",
-                    'content'  => "Here is the post content."
-                ]
-            ],
-        ];
+        $this->connection = new Airtable();
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +21,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return $this->posts;
+        return $this->connection->getPosts();
     }
 
     /**

@@ -10,7 +10,13 @@
     <body class="p-3">
         <div class="mx-auto sm:w-1/2">
             <h1 id="blog-title" class="text-xl mb-4">{{ $blog['blog_title'] }}</h1>
-            <p id="blog-description" class="text-sm text-gray-500">{{ $blog['blog_description'] }}</p>
+            <p id="blog-description" class="text-sm text-gray-500 mb-10">{{ $blog['blog_description'] }}</p>
+        
+            @foreach($posts as $post)
+            <div>
+                <a href="{{ $post['slug'] }}">{{ $post['title'] }}</a>
+            </div>
+            @endforeach
         </div>
     </body>
 </html>
