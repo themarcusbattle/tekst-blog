@@ -4,6 +4,7 @@ namespace App\Content;
 
 use \TANIOS\Airtable\Airtable as AirtableContent;
 use \Parsedown;
+use Carbon\Carbon;
 
 class Airtable {
 
@@ -50,11 +51,12 @@ class Airtable {
         foreach($response['records'] as $record) {
 
             $posts[] = [
-                'title' => $record->fields->Title,
-                'slug' => $record->fields->Slug,
+                'title' => $record->fields->Title ?? "",
+                'slug' => $record->fields->Slug ?? "",
                 'subtitle' => $record->fields->Subtitle ?? "",
-                'content' => $record->fields->Content,
-                'status' => $record->fields->Status,
+                'content' => $record->fields->Content ?? "",
+                'status' => $record->fields->Status ?? "",
+                'created' => date("F j, Y", strtotime($record->fields->Created)) ?? "",
             ];
         }
 
@@ -82,7 +84,8 @@ class Airtable {
             'subtitle' => $record->fields->Subtitle ?? "",
             'content' => $Parsedown->text($record->fields->Content) ?? "",
             'status' => $record->fields->Status ?? "draft",
-            'author' => $this->getAuthor($record->fields->Author[0])
+            'author' => $this->getAuthor($record->fields->Author[0]),
+            'created' => date("F j, Y", strtotime($record->fields->Created)) ?? "",
         ];
     }
 
@@ -90,12 +93,10 @@ class Airtable {
     {
         $request = $this->connection->getContent("Authors/$author_id");
         $response = $request->getResponse();
-        
-        $record = $response['records'] ?? null;
 
         return [
-            'name' => $record->fields->Name ?? '',
-            'email' => $record->fields->Email ?? '',
+            'name' => $response->fields->Name ?? '',
+            'email' => $response->fields->Email ?? '',
         ];
     }
 }
