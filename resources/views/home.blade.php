@@ -19,7 +19,13 @@
             <div id="blog-description" class="text-sm text-gray-500 mb-10 sm:w-3/4">
                 <?php echo html_entity_decode($blog['blog_description']) ?>
             </div>
-        
+            <div class="block py-4 border-t border-b mb-8 flex space-x-4">
+                <h2 class="font-bold">Topics</h2>
+                <ul class="space-x-3">
+                    <li class="inline"><a href="/code" class="text-gray-600 hover:text-gray-800">Code</a></li>
+                    <li class="inline"><a href="/faith" class="text-gray-600 hover:text-gray-800">Faith</a></li>
+                </ul>
+            </div>
             @foreach($posts as $post)
             <div>
                 <h3 class="text-2xl font-bold mb-4"><a href="{{ $post['slug'] }}">{{ $post['title'] }}</a></h3>

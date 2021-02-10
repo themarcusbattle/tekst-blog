@@ -38,6 +38,10 @@ class Airtable {
             if ('blog_description' == $key) {
                 $records[$key] = $Parsedown->text($record->fields->Value) ?? '';
             }
+
+            if ('frsh' == $key) {
+                // $records[$key] = $Parsedown->text($record->fields->Value) ?? '';
+            }
         }
 
         return array_merge([
