@@ -13,13 +13,10 @@
             #post-content h2 { margin-top: 3rem; }
         </style>
     </head>
-    <body class="pt-20">
-        <div class="bg-white border-b mb-8 fixed top-0 w-full">
-            <div class="py-3 px-10 mx-auto sm:w-1/2 text-gray-800">
-                <h1 id="blog-title" class="text-l"><a href="/">{{ $blog['blog_title'] }}</a></h1>
-            </div>
-        </div>
-        <div class="px-10 mx-auto sm:w-1/2 text-gray-800">
+    <body class="pt-24">
+        <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" />
+
+        <div class="px-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">
             <h2 class="text-4xl mb-4 font-bold">{{ $post['title'] }}</h2>
             <h3>{{ $post['subtitle'] }}</h3>
             <div class="text-gray-500 space-x-4">
@@ -30,7 +27,7 @@
                 <?php echo html_entity_decode($post['content']) ?>
             </div>
             <div class="py-10 text-sm text-gray-400">
-                <span>&copy <?php echo date("Y"); ?> {{ $blog['blog_title'] }}</span>
+                <span>&copy <?php echo date("Y"); ?> {{ $blog['blog_title'] }}. Built with Tekst.</span>
             </div>
         </div>
     </body>

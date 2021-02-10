@@ -11,13 +11,9 @@
         </style>
     </head>
     <body class="pt-20">
-        <div class="bg-white border-b mb-8 fixed top-0 w-full">
-            <div class="py-3 px-10 mx-auto sm:w-1/2 text-gray-800">
-                <h1 id="blog-title" class="text-l"><a href="/">{{ $blog['blog_title'] }}</a></h1>
-            </div>
-        </div>
+        <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" />
 
-        <div class="px-10 mx-auto sm:w-1/2 text-gray-800">
+        <div class="px-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">
             <p id="blog-description" class="text-sm text-gray-500 mb-10 sm:w-3/4">
                 {{ $blog['blog_description'] }}
             </p>
@@ -25,7 +21,7 @@
             @foreach($posts as $post)
             <div>
                 <h3 class="text-2xl font-bold mb-4"><a href="{{ $post['slug'] }}">{{ $post['title'] }}</a></h3>
-                <p class="text-sm text-gray-400">Posted {{ $post['created'] }}</p>
+                <p class="text-sm text-gray-500">Posted {{ $post['created'] }}</p>
             </div>
             @endforeach
         </div>

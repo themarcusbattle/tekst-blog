@@ -33,10 +33,11 @@ class Airtable {
 
             $records[$key] = $record->fields->Value ?? '';
         }
-        
+
         return array_merge([
             'blog_title' => "",
-            'blog_description' => ""
+            'blog_description' => "",
+            'frsh' => ""
         ],$records);
     }
 
