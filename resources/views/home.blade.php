@@ -10,7 +10,7 @@
             * { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
         </style>
     </head>
-    <body class="pt-20">
+    <body class="pt-28">
         <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" />
 
         <div class="px-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">
