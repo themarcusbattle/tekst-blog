@@ -8,15 +8,17 @@
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <style>
             * { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+            p { margin-bottom: 1.5rem; }
+            #blog-description a { color: inherit; font-weight: bold; }
         </style>
     </head>
     <body class="pt-28">
         <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" />
 
         <div class="px-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">
-            <p id="blog-description" class="text-sm text-gray-500 mb-10 sm:w-3/4">
-                {{ $blog['blog_description'] }}
-            </p>
+            <div id="blog-description" class="text-sm text-gray-500 mb-10 sm:w-3/4">
+                <?php echo html_entity_decode($blog['blog_description']) ?>
+            </div>
         
             @foreach($posts as $post)
             <div>

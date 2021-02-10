@@ -20,6 +20,8 @@ class Airtable {
 
     public function getBlogDetails()
     {
+        $Parsedown = new Parsedown();
+        
         // Capture the Blog details
         $request = $this->connection->getContent('Settings');
         $response = $request->getResponse();
@@ -32,6 +34,10 @@ class Airtable {
             $key = str_replace(' ', '_', $key);
 
             $records[$key] = $record->fields->Value ?? '';
+
+            if ('blog_description' == $key) {
+                $records[$key] = $Parsedown->text($record->fields->Value) ?? '';
+            }
         }
 
         return array_merge([
