@@ -24,7 +24,7 @@
         
             @foreach($posts as $post)
             <div>
-                <a href="{{ $post['slug'] }}">{{ $post['title'] }}</a>
+                <a href="{{ $post['slug'] }}" class="text-xl">{{ $post['title'] }}</a>
             </div>
             @endforeach
         </div>

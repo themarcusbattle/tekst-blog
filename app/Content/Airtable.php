@@ -77,11 +77,25 @@ class Airtable {
         $record = $response['records'][0] ?? null;
 
         return [
-            'title' => $record->fields->Title,
-            'slug' => $record->fields->Slug,
+            'title' => $record->fields->Title ?? "",
+            'slug' => $record->fields->Slug ?? "",
             'subtitle' => $record->fields->Subtitle ?? "",
-            'content' => $Parsedown->text($record->fields->Content),
-            'status' => $record->fields->Status,
+            'content' => $Parsedown->text($record->fields->Content) ?? "",
+            'status' => $record->fields->Status ?? "draft",
+            'author' => $this->getAuthor($record->fields->Author[0])
+        ];
+    }
+
+    public function getAuthor($author_id)
+    {
+        $request = $this->connection->getContent("Authors/$author_id");
+        $response = $request->getResponse();
+        
+        $record = $response['records'] ?? null;
+
+        return [
+            'name' => $record->fields->Name ?? '',
+            'email' => $record->fields->Email ?? '',
         ];
     }
 }
