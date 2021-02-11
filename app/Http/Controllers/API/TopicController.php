@@ -5,8 +5,15 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Content\Airtable;
+
 class TopicController extends Controller
 {
+    public function __construct()
+    {
+        $this->connection = new Airtable();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,7 @@ class TopicController extends Controller
      */
     public function index()
     {
-        return ['one', 'two', 'three'];
+        return $this->connection->getTopics();
     }
 
     /**

@@ -110,4 +110,23 @@ class Airtable {
             'email' => $response->fields->Email ?? '',
         ];
     }
+
+    public function getTopics()
+    {
+        // Capture the Posts
+        $request = $this->connection->getContent('Topics');
+        $response = $request->getResponse();
+
+        $posts = [];
+
+        foreach($response['records'] as $record) {
+
+            $posts[] = [
+                'name' => $record->fields->Name ?? "",
+                'slug' => $record->fields->Slug ?? "",
+            ];
+        }
+
+        return $posts;
+    }
 }

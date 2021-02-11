@@ -16,5 +16,6 @@ use App\Http\Controllers\TopicController;
 */
 
 Route::get('/', [TopicController::class, 'showHome']);
+Route::get('/topics', [TopicController::class, 'showTopics']);
 Route::get('/{topic}', [TopicController::class, 'showTopic']);
 Route::get('/{topic}/{post_slug}', [TopicController::class, 'showPost']);

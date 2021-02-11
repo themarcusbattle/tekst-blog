@@ -26,6 +26,14 @@ class TopicController extends Controller
 			'posts' => $this->post_api->index()
 		]);
 	}
+
+	public function showTopics(Request $request)
+	{
+		return view('topics',[
+			'blog' => $this->blog_api->index(),
+			'topics' => $this->topic_api->index(),
+		]);
+	}
 	
     public function showTopic(Request $request, $topic)
     {
