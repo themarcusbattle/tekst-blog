@@ -39,8 +39,8 @@ class Airtable {
                 $records[$key] = $Parsedown->text($record->fields->Value) ?? '';
             }
 
-            if ('frsh' == $key) {
-                // $records[$key] = $Parsedown->text($record->fields->Value) ?? '';
+            if ('blog_email' == $key) {
+                $records[$key] = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $record->fields->Value ) ) ) . "&s=300";
             }
         }
 

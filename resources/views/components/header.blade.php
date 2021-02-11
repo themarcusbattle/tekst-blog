@@ -6,8 +6,8 @@
         <div class="flex-initial flex items-center">
             <a class="sm:hidden mr-4" href="/topics">Topics</a>
             <ul class="hidden sm:block space-x-3 mr-4">
-                <li class="inline"><a href="/code" class="text-gray-600 hover:text-gray-800">Code</a></li>
-                <li class="inline"><a href="/faith" class="text-gray-600 hover:text-gray-800">Faith</a></li>
+                <li class="inline"><a href="/code" class="">Code</a></li>
+                <li class="inline"><a href="/faith" class="">Faith</a></li>
             </ul>
         </div>
         <span>
