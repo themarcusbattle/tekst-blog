@@ -23,15 +23,21 @@ class TopicController extends Controller
 
 		return view('home',[
 			'blog' => $this->blog_api->index(),
+			'topics' => $this->topic_api->index(),
 			'posts' => $this->post_api->index()
 		]);
 	}
 
-	public function showTopics(Request $request)
+	public function showTopics(Request $request, $topic)
 	{
+		$params = [
+			'filterByFormula' => "FIND('{$params['where']['slug']}',Slug)"
+		];
+
 		return view('topics',[
 			'blog' => $this->blog_api->index(),
 			'topics' => $this->topic_api->index(),
+			'posts' => $this->post_api->index()
 		]);
 	}
 	
@@ -58,6 +64,7 @@ class TopicController extends Controller
     {
 		return view('post',[
 			'blog' => $this->blog_api->index(),
+			'topics' => $this->topic_api->index(),
 			'post' => $this->post_api->show($topic, [
 				'where' => ['slug' => $post_slug]
 			])

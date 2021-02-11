@@ -10,15 +10,18 @@ class Header extends Component
 
     public $frsh;
 
+    public $topics;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $frsh)
+    public function __construct($title, $frsh, $topics)
     {
         $this->title = $title;
         $this->frsh = $frsh;
+        $this->topics = $topics;
     }
 
     /**

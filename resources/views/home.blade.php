@@ -24,7 +24,7 @@
         </style>
     </head>
     <body class="pt-24">
-        <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" />
+        <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" :topics="$topics" />
 
         <div class="border-b border-gray-100 mb-10">
             <div class="px-10 md:py-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">

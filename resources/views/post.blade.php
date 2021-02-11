@@ -17,7 +17,7 @@
         </style>
     </head>
     <body class="pt-28">
-        <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" />
+        <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" :topics="$topics" />
 
         <div class="px-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">
             <h2 class="text-4xl mb-4 font-bold">{{ $post['title'] }}</h2>

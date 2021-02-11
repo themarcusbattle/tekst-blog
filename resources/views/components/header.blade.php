@@ -5,9 +5,10 @@
         </span>
         <div class="flex-initial flex items-center">
             <a class="sm:hidden mr-4" href="/topics">Topics</a>
-            <ul class="hidden sm:block space-x-3 mr-4">
-                <li class="inline"><a href="/code" class="">Code</a></li>
-                <li class="inline"><a href="/faith" class="">Faith</a></li>
+            <ul class="hidden sm:block space-x-3 mr-4 flex items-center">
+                @foreach($topics as $topic)
+                <li class="inline"><a href="/{{ $topic['slug'] }}" class="">{{ $topic['name'] }}</a></li>
+                @endforeach
             </ul>
         </div>
         <span>
