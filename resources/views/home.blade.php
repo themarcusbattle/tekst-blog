@@ -6,7 +6,15 @@
 
         <title>{{ $blog['blog_title'] }}</title>
         <meta name="description" content="{{ $blog['seo_description'] }}">
+        <meta property="og:title" content="{{ $blog['seo_title'] }}">
 
+        <meta property="og:url" content="{{ url()->current() }}" />
+        <meta property="og:site_name" content="{{ $blog['seo_title'] }}" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:site" content="{{ $blog['twitter_username'] }}" />
+        <meta name="twitter:title" content="{{ $blog['seo_title'] }}">
+        <meta name="twitter:card" content="summary" />
+        
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <style>
             * { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
