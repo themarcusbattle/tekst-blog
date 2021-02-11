@@ -16,18 +16,23 @@
     <body class="pt-24">
         <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" />
 
-        <div class="px-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">
-            <div id="blog-description" class="mb-10 border-b border-gray-100">
-                <?php echo html_entity_decode($blog['blog_description']) ?>
+        <div class="border-b border-gray-100 mb-10">
+            <div class="px-10 md:py-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">
+                <div id="blog-description" class="text-lg font-light">
+                    <?php echo html_entity_decode($blog['blog_description']) ?>
+                </div>
             </div>
+        </div>
 
-            <h2 class="mb-10 text-gray-300 text-xs uppercase tracking-wide font-bold">Posts</h2>
-            @foreach($posts as $post)
-            <div>
-                <h3 class="text-2xl font-bold mb-4"><a href="{{ $post['slug'] }}">{{ $post['title'] }}</a></h3>
-                <p class="text-sm text-gray-500">Posted {{ $post['created'] }}</p>
+        <div>
+            <div class="px-10 md:py-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">
+                @foreach($posts as $post)
+                <div>
+                    <h3 class="text-2xl font-bold mb-4"><a href="{{ $post['slug'] }}">{{ $post['title'] }}</a></h3>
+                    <p class="text-sm text-gray-500">Posted {{ $post['created'] }}</p>
+                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </body>
 </html>
