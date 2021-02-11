@@ -17,16 +17,11 @@
         <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" />
 
         <div class="px-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">
-            <div id="blog-description" class="mb-10 border-b border-gray-100 flex bg-gray-100">
-                <div class="w-1/4 mr-5">
-                    <img src="{{ $blog['blog_email'] }}" class="rounded-full w-full mt-2" />
-                </div>
-                <div class="flex-initial w-3/4 text-sm">
-                    <?php echo html_entity_decode($blog['blog_description']) ?>
-                </div>
+            <div id="blog-description" class="mb-10 border-b border-gray-100">
+                <?php echo html_entity_decode($blog['blog_description']) ?>
             </div>
 
-            <h2 class="mb-10 text-gray-500 text-xs uppercase">Recent Posts</h2>
+            <h2 class="mb-10 text-gray-300 text-xs uppercase tracking-wide font-bold">Posts</h2>
             @foreach($posts as $post)
             <div>
                 <h3 class="text-2xl font-bold mb-4"><a href="{{ $post['slug'] }}">{{ $post['title'] }}</a></h3>
