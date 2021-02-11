@@ -28,12 +28,8 @@ class TopicController extends Controller
 		]);
 	}
 
-	public function showTopics(Request $request, $topic)
+	public function showTopics(Request $request)
 	{
-		$params = [
-			'filterByFormula' => "FIND('{$params['where']['slug']}',Slug)"
-		];
-
 		return view('topics',[
 			'blog' => $this->blog_api->index(),
 			'topics' => $this->topic_api->index(),
