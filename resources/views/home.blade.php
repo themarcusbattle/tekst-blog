@@ -12,20 +12,22 @@
             #blog-description a { color: inherit; font-weight: bold; }
         </style>
     </head>
-    <body class="pt-28">
+    <body class="pt-24">
         <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" />
 
         <div class="px-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">
-            <div id="blog-description" class="text-sm text-gray-500 mb-10 sm:w-3/4">
-                <?php echo html_entity_decode($blog['blog_description']) ?>
-            </div>
-            <div class="block py-4 border-t border-b mb-8 flex space-x-4">
+            <div class="py-4 mb-8 flex space-x-4 text-sm border-t border-b border-gray-100">
                 <h2 class="font-bold">Topics</h2>
                 <ul class="space-x-3">
                     <li class="inline"><a href="/code" class="text-gray-600 hover:text-gray-800">Code</a></li>
                     <li class="inline"><a href="/faith" class="text-gray-600 hover:text-gray-800">Faith</a></li>
                 </ul>
             </div>
+            <div id="blog-description" class="text-sm text-gray-500 mb-10 border-b border-gray-100">
+                <?php echo html_entity_decode($blog['blog_description']) ?>
+            </div>
+
+            <h2 class="font-bold mb-10 text-gray-500 text-sm">Recent Posts</h2>
             @foreach($posts as $post)
             <div>
                 <h3 class="text-2xl font-bold mb-4"><a href="{{ $post['slug'] }}">{{ $post['title'] }}</a></h3>
