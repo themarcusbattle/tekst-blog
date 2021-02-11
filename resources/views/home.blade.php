@@ -4,7 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Topix</title>
+        <title>{{ $blog['blog_title'] }}</title>
+        <meta name="description" content="{{ $blog['seo_description'] }}">
+
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <style>
             * { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
@@ -24,7 +26,7 @@
             </div>
         </div>
 
-        <div>
+        <div class="border-b border-gray-100 pb-20">
             <div class="px-10 md:py-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-800">
                 @foreach($posts as $post)
                 <div>
@@ -32,6 +34,12 @@
                     <p class="text-sm text-gray-500">Posted {{ $post['created'] }}</p>
                 </div>
                 @endforeach
+            </div>
+        </div>
+
+        <div class="py-10 text-sm text-gray-400 font-light">
+            <div class="px-10 md:py-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-500">
+                <span>&copy <?php echo date("Y"); ?> {{ $blog['blog_title']}}. Built with Tekst.</span>
             </div>
         </div>
     </body>

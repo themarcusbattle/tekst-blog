@@ -29,8 +29,11 @@
             <div id="post-content" class="my-10 mb-20">
                 <?php echo html_entity_decode($post['content']) ?>
             </div>
-            <div class="py-10 text-sm text-gray-400">
-                <span>&copy <?php echo date("Y"); ?> {{ $blog['blog_title'] }}. Built with Tekst.</span>
+        </div>
+
+        <div class="py-10 text-sm text-gray-400 font-light">
+            <div class="px-10 md:py-10 mx-auto sm:w-3/4 lg:w-1/2 text-gray-500">
+                <span>&copy <?php echo date("Y"); ?> {{ $blog['blog_title']}}. Built with Tekst.</span>
             </div>
         </div>
     </body>

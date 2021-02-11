@@ -33,7 +33,7 @@ class Airtable {
             $key = strtolower($record->fields->Name);
             $key = str_replace(' ', '_', $key);
 
-            $records[$key] = $record->fields->Value ?? '';
+            $records[$key] = trim($record->fields->Value) ?? '';
 
             if ('blog_description' == $key) {
                 $records[$key] = $Parsedown->text($record->fields->Value) ?? '';
