@@ -43,7 +43,7 @@ class TopicController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->connection->getTopic($id);
     }
 
     /**

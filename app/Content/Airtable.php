@@ -51,10 +51,10 @@ class Airtable {
         ],$records);
     }
 
-    public function getPosts()
+    public function getPosts($params = [])
     {
         // Capture the Posts
-        $request = $this->connection->getContent('Posts');
+        $request = $this->connection->getContent('Posts', $params);
         $response = $request->getResponse();
 
         $posts = [];
@@ -109,6 +109,29 @@ class Airtable {
             'name' => $response->fields->Name ?? '',
             'email' => $response->fields->Email ?? '',
         ];
+    }
+
+    public function getTopic($topic_slug)
+    {
+        // Retrieve the topic
+        $request = $this->connection->quickCheck("Topics","slug",$topic_slug);
+
+        if ($request->count) {
+
+        }
+
+        echo '<pre>'; print_r($request); exit;
+        $posts = [];
+
+        foreach($response['records'] as $record) {
+
+            $posts[] = [
+                'name' => $record->fields->Name ?? "",
+                'slug' => $record->fields->Slug ?? "",
+            ];
+        }
+
+        return $posts;
     }
 
     public function getTopics()

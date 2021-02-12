@@ -21,10 +21,14 @@ class TopicController extends Controller
 	{
 		$topics = $this->topic_api->index();
 
+		$params = [
+			'filterByFormula' => "FIND('Published',Status)"
+		];
+
 		return view('home',[
 			'blog' => $this->blog_api->index(),
 			'topics' => $this->topic_api->index(),
-			'posts' => $this->post_api->index()
+			'posts' => $this->post_api->index($params)
 		]);
 	}
 
@@ -39,21 +43,18 @@ class TopicController extends Controller
 	
     public function showTopic(Request $request, $topic)
     {
-		$posts = $this->post_api->index();
-		$posts = $posts[$topic] ?? null;
+		$topic = ucwords($topic);
 
-		echo "<h2>$topic</h2>";
-		
-		if ($posts) {
+		$params = [
+			'filterByFormula' => "FIND('{$topic}',Topic)"
+		];
 
-			foreach($posts as $post) {
-				echo "<p><a href=\"/$topic{$post['slug']}\">{$post['title']}</a></p>";
-			}
-		} else {
-
-		}
-
-		echo "<p><a href=\"/\">Home</a></p>";
+		return view('topic',[
+			'blog' => $this->blog_api->index(),
+			'topics' => $this->topic_api->index(),
+			'posts' => $this->post_api->index($params),
+			'topic' => $topic
+		]);
     }
     
     public function showPost(Request $request, $topic, $post_slug)
