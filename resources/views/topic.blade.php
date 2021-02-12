@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ $blog['blog_title'] }}</title>
+        <title>{{ $blog['blog_title'] }}'s Thoughts on {{ $topic }}</title>
         <meta name="description" content="{{ $blog['seo_description'] }}">
         <meta property="og:title" content="{{ $blog['seo_title'] }}">
 
