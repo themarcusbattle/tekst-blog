@@ -22,6 +22,9 @@
             #blog-description a { color: rgba(37, 99, 235); text-decoration: underline; }
             /* #post-content a { color: rgba(37, 99, 235); text-decoration: underline; } */
         </style>
+        @if($blog['plausible_domain'])
+        <script async defer data-domain="{{ $blog['plausible_domain'] }}" src="https://plausible.io/js/plausible.js"></script>
+        @endif
     </head>
     <body class="pt-24">
         <x-header :title="$blog['blog_title']" :frsh="$blog['frsh']" :topics="$topics" />

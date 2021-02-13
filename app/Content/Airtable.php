@@ -47,7 +47,8 @@ class Airtable {
         return array_merge([
             'blog_title' => "",
             'blog_description' => "",
-            'frsh' => ""
+            'frsh' => "",
+            'plausible_domain' => ""
         ],$records);
     }
 
