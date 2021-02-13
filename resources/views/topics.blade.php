@@ -15,7 +15,7 @@
         <meta name="twitter:title" content="{{ $blog['seo_title'] }}">
         <meta name="twitter:card" content="summary" />
         
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <style>
             * { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
             p { margin-bottom: 1.5rem; }

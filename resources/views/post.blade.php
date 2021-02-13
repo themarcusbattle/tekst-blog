@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{{ $post['title'] }} - {{ $blog['blog_title'] }}</title>
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <style>
             * { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
             p, h2, h3, blockquote { margin-bottom: 1.5rem; }
