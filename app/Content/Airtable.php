@@ -62,6 +62,10 @@ class Airtable {
 
         foreach($response['records'] as $record) {
 
+            if ('Draft' == $record->fields->Status) {
+                continue;
+            }
+
             $posts[] = [
                 'title' => $record->fields->Title ?? "",
                 'slug' => $record->fields->Slug ?? "",
