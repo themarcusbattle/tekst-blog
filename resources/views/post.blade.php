@@ -24,6 +24,7 @@
             #post-content a { color: rgba(37, 99, 235); text-decoration: underline; }
             #post-content blockquote { background-color: rgba(255, 251, 235); padding: 1.5rem; border-radius: .375rem; }
             #post-content blockquote p:last-of-type { margin-bottom: 0; }
+            #post-content ul { padding-left: 1rem; list-style-type: disc; margin-bottom: 1.5rem; }
         </style>
         @if($blog['plausible_domain'])
         <script async defer data-domain="{{ $blog['plausible_domain'] }}" src="https://plausible.io/js/plausible.js"></script>
